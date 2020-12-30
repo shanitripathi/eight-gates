@@ -21,7 +21,10 @@ const GameDetail = ({ id }) => {
   const dispatch = useDispatch();
   console.log(pathname);
   const exitHandler = (e) => {
-    if (e.target.classList.contains("card-shadow")) {
+    if (
+      e.target.classList.contains("card-shadow") ||
+      e.target.classList.contains("btn-back")
+    ) {
       dispatch(exitCard());
       document.body.style.overflow = "auto";
     }
@@ -58,11 +61,14 @@ const GameDetail = ({ id }) => {
     return (
       <CardShadow className="card-shadow" onClick={exitHandler}>
         <Detail LayoutId={id} className="detail container">
-          <div className="cross"></div>
           <div className="row">
             <Stats className="stats col-12">
               <div className="rating">
-                <h5>{game.name}</h5>
+                <span className="btn-back" onClick={exitHandler}>
+                  Back
+                </span>
+                <h5 className="mt-2">{game.name}</h5>
+
                 <p>Rating: {getStars()}</p>
               </div>
               <Info className="info">
@@ -83,7 +89,7 @@ const GameDetail = ({ id }) => {
               </Info>
             </Stats>
             <Media className="media col-12">
-              <img src={game.background_image} alt="image" />
+              <img src={game.background_image} class="img-main" alt="image" />
             </Media>
             <Description className="description">
               <p>{game.description_raw}</p>
@@ -125,17 +131,13 @@ const Detail = styled(motion.div)`
   height: 90%;
   overflow-y: scroll;
   color: black;
-  .cross {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    transform: rotate(45deg);
-    border-radius: 50%;
-    background-color: white;
-    right: 2%;
-    top: 0%;
-    transform: translate(0%, -50%);
-    z-index: 20;
+  .btn-back {
+    font-size: 0.7rem;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
   }
 
   img {
@@ -152,6 +154,8 @@ const Detail = styled(motion.div)`
   } */
   @media (max-width: 520px) {
     padding: 1rem 1.3rem;
+    height: 70%;
+    width: 90%;
     h5 {
       font-size: 0.8rem;
       font-weight: bold;
@@ -217,6 +221,11 @@ const Media = styled(motion.div)`
     width: 100%;
     height: 60vh;
     object-fit: cover;
+  }
+  @media (max-width: 500px) {
+    .img-main {
+      height: 40vh;
+    }
   }
 `;
 const Description = styled(motion.div)`

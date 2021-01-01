@@ -47,6 +47,10 @@ const StyledGame = styled(motion.div)`
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
+    transition: all 500ms ease-in-out;
+    &:hover {
+      transform: scale(0.9);
+    }
 
     overflow: hidden;
     .name-date-container {

@@ -131,6 +131,7 @@ const Detail = styled(motion.div)`
   height: 90%;
   overflow-y: scroll;
   color: black;
+
   .btn-back {
     font-size: 0.7rem;
     font-weight: bold;
@@ -154,14 +155,22 @@ const Detail = styled(motion.div)`
   } */
   @media (max-width: 520px) {
     padding: 1rem 1.3rem;
-    height: 70%;
-    width: 90%;
+    height: 90%;
+    width: 100%;
     h5 {
       font-size: 0.8rem;
       font-weight: bold;
     }
     p {
       font-size: 0.7rem;
+    }
+    .description {
+      p {
+        line-height: 1.2rem;
+        font-weight: light;
+        padding: 10px;
+        color: rgb(74, 87, 88);
+      }
     }
   }
 `;
@@ -230,6 +239,12 @@ const Media = styled(motion.div)`
 `;
 const Description = styled(motion.div)`
   margin: 2rem 0rem;
+  p {
+    line-height: 1.7rem;
+    font-weight: light;
+
+    color: rgb(74, 87, 88);
+  }
 `;
 
 export default GameDetail;

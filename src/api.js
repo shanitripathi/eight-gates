@@ -18,7 +18,7 @@ const getCurrentDay = () => {
 };
 const currentYear = new Date().getFullYear();
 const currentMonth = getCurrentMonth();
-const currentDay = new Date().getDate();
+const currentDay = getCurrentDay();
 const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
@@ -35,3 +35,15 @@ export const gameScreenshotUrl = (game_id) =>
 export const searchGameUrl = (game_name) => {
   return `${base_url}games?search=${game_name}&page_size=9`;
 };
+
+// reference for later when the api's issues are fixed
+
+// const currentYear = new Date().getFullYear();
+// const currentMonth = getCurrentMonth();
+// const currentDay = new Date().getDate();
+// const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+// const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
+// const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
+// const popularGames = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+// const upcomingGames = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+// const newGames = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;

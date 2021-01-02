@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 body{
     /* font-family:'Montserrat',sans-serif; */
     font-family:futura;
-    background-color:#202020;
+    /* background-color:#202020; */
    
     
     

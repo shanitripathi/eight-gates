@@ -62,7 +62,7 @@ const Nav = () => {
 
 const StyledNav = styled(motion.div)`
   text-align: center;
-  background-color: #3f3f3f;
+  background-color: #202020;
   padding: 30px 0 0 0;
   input {
     width: 70%;

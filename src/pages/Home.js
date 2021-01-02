@@ -62,7 +62,7 @@ const Home = () => {
             </GameList>
           )}
           <GameList className="container-fluid">
-            <h2>Upcoming Games</h2>
+            <h2 id="upcoming">Upcoming Games</h2>
             <Games className="row">
               {upcomingGames.map((game) => {
                 return (
@@ -78,7 +78,7 @@ const Home = () => {
             </Games>
           </GameList>
           <GameList className="container-fluid">
-            <h2>Popular Games</h2>
+            <h2 id="popular">Popular Games</h2>
             <Games className="row">
               {popularGames.map((game) => {
                 return (
@@ -94,7 +94,7 @@ const Home = () => {
             </Games>
           </GameList>
           <GameList className="container-fluid">
-            <h2>New Games</h2>
+            <h2 id="new">New Games</h2>
             <Games className="row">
               {newGames.map((game) => {
                 return (
@@ -124,10 +124,9 @@ const GameList = styled(motion.div)`
   }
   h2 {
     padding: 0.5rem 0.2rem;
-    background-color: white;
-    background-color: black;
+    background-color: #3f3f3f;
     display: inline-block;
-    color: white;
+    color: #ffe06b;
 
     font-weight: bolder;
     @media (max-width: 500px) {

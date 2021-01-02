@@ -29,9 +29,8 @@ const Nav = () => {
       animate="show"
     >
       <Logo onClick={LogoHandler}>
-        <img src={logo} alt="logo" />
         <h1>
-          Eight-<span>Gates</span>
+          EIGHT-<span>GATES</span>
         </h1>
       </Logo>
       <form className="search" onSubmit={submitHandler}>
@@ -42,7 +41,20 @@ const Nav = () => {
             setInput(e.target.value);
           }}
         />
-        <button>Search</button>
+        <button>search</button>
+        <div className="link-container">
+          <ul className="list">
+            <li className="list-item">
+              <a href="#upcoming">UPCOMING</a>
+            </li>
+            <li className="list-item">
+              <a href="#popular">POPULAR</a>
+            </li>
+            <li className="list-item">
+              <a href="#new">NEW</a>
+            </li>
+          </ul>
+        </div>
       </form>
     </StyledNav>
   );
@@ -50,26 +62,46 @@ const Nav = () => {
 
 const StyledNav = styled(motion.div)`
   text-align: center;
-
+  background-color: #3f3f3f;
+  padding: 30px 0 0 0;
   input {
     width: 70%;
     border: none;
     outline: none;
-    background-color: #bdc6c9;
+    background-color: white;
     height: 40px;
     padding: 20px;
-    border-radius: 10%;
+    border-radius: 50px;
     font-weight: bold;
   }
   button {
     border: none;
     height: 40px;
     font-size: 1.3rem;
-    color: burlywood;
+    color: white;
     background-color: transparent;
     font-weight: bolder;
     padding: 10px;
     outline: none;
+  }
+  .link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    .list {
+      display: flex;
+      .list-item {
+        padding: 20px;
+        list-style: none;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 900;
+          font-size: 1rem;
+        }
+      }
+    }
   }
 `;
 const Logo = styled(motion.div)`
@@ -79,12 +111,14 @@ const Logo = styled(motion.div)`
   cursor: pointer;
 
   padding: 20px;
+
   h1 {
     font-weight: bolder;
     font-size: 2rem;
     margin: 0;
+    color: white;
     span {
-      color: red;
+      color: white;
     }
   }
   img {

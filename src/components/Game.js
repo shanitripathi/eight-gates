@@ -48,6 +48,8 @@ const StyledGame = styled(motion.div)`
     justify-content: space-between;
     border-radius: 10px;
     transition: all 500ms ease-in-out;
+    background-color: white;
+    font-family: futura;
     &:hover {
       transform: scale(0.9);
     }

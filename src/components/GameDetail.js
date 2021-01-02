@@ -122,7 +122,7 @@ const CardShadow = styled(motion.div)`
 const Detail = styled(motion.div)`
   border-radius: 1rem;
   padding: 2rem 2rem;
-  background-color: white;
+  background-color: #202020;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -130,13 +130,13 @@ const Detail = styled(motion.div)`
   width: 70%;
   height: 90%;
   overflow-y: scroll;
-  color: black;
+  color: #ffe06b;
 
   .btn-back {
     font-size: 0.7rem;
     font-weight: bold;
     background-color: black;
-    color: white;
+
     padding: 5px;
     cursor: pointer;
   }
@@ -169,7 +169,6 @@ const Detail = styled(motion.div)`
         line-height: 1.2rem;
         font-weight: light;
         padding: 10px;
-        color: rgb(74, 87, 88);
       }
     }
   }
@@ -243,7 +242,7 @@ const Description = styled(motion.div)`
     line-height: 1.7rem;
     font-weight: light;
 
-    color: rgb(74, 87, 88);
+    color: white;
   }
 `;
 

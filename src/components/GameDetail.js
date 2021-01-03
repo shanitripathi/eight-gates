@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,7 @@ import apple from "../img/apple.svg";
 import gamepad from "../img/gamepad.svg";
 import starEmpty from "../img/star-empty.png";
 import starFull from "../img/star-full.png";
+import { popup, fadeIn } from "../animations";
 
 const GameDetail = ({ id }) => {
   const { game, screenshots } = useSelector((state) => state.detailReducer);
@@ -57,55 +58,62 @@ const GameDetail = ({ id }) => {
     }
     return stars;
   };
-  if (game.name) {
-    return (
-      <CardShadow className="card-shadow" onClick={exitHandler}>
-        <Detail LayoutId={id} className="detail container">
-          <div className="row">
-            <Stats className="stats col-12">
-              <div className="rating">
-                <span className="btn-back" onClick={exitHandler}>
-                  Back
-                </span>
-                <h5 className="mt-2">{game.name}</h5>
+  return (
+    <AnimatePresence>
+      {game.name && (
+        <CardShadow
+          exit={{ opacity: 0 }}
+          variants={fadeIn}
+          initial="hidden"
+          animate="show"
+          className="card-shadow"
+          onClick={exitHandler}
+        >
+          <Detail className="detail container">
+            <div className="row">
+              <Stats className="stats col-12">
+                <div className="rating">
+                  <span className="btn-back" onClick={exitHandler}>
+                    Back
+                  </span>
+                  <h5 className="mt-2">{game.name}</h5>
 
-                <p>Rating: {getStars()}</p>
+                  <p>Rating: {getStars()}</p>
+                </div>
+                <Info className="info">
+                  <h5>Platforms</h5>
+                  <Platforms className="platforms">
+                    {game.parent_platforms.map((data) => {
+                      return (
+                        <p key={data.platform.id}>
+                          <img
+                            className="img-platform"
+                            src={getPlatformImages(data.platform.name)}
+                            alt=""
+                          />
+                        </p>
+                      );
+                    })}
+                  </Platforms>
+                </Info>
+              </Stats>
+              <Media className="media col-12">
+                <img src={game.background_image} class="img-main" alt="image" />
+              </Media>
+              <Description className="description">
+                <p>{game.description_raw}</p>
+              </Description>
+              <div className="gallery">
+                {screenshots.results.map((image) => {
+                  return <img key={image.id} src={image.image} alt="" />;
+                })}
               </div>
-              <Info className="info">
-                <h5>Platforms</h5>
-                <Platforms className="platforms">
-                  {game.parent_platforms.map((data) => {
-                    return (
-                      <p key={data.platform.id}>
-                        <img
-                          className="img-platform"
-                          src={getPlatformImages(data.platform.name)}
-                          alt=""
-                        />
-                      </p>
-                    );
-                  })}
-                </Platforms>
-              </Info>
-            </Stats>
-            <Media className="media col-12">
-              <img src={game.background_image} class="img-main" alt="image" />
-            </Media>
-            <Description className="description">
-              <p>{game.description_raw}</p>
-            </Description>
-            <div className="gallery">
-              {screenshots.results.map((image) => {
-                return <img key={image.id} src={image.image} alt="" />;
-              })}
             </div>
-          </div>
-        </Detail>
-      </CardShadow>
-    );
-  } else {
-    return null;
-  }
+          </Detail>
+        </CardShadow>
+      )}
+    </AnimatePresence>
+  );
 };
 
 const CardShadow = styled(motion.div)`

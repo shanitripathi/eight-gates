@@ -5,7 +5,7 @@ export const fadeIn = {
   show: {
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.25,
     },
   },
 };
@@ -19,7 +19,19 @@ export const popup = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
+    },
+  },
+};
+
+export const bounce = {
+  show: {
+    scale: [1, 0.3],
+    transition: {
+      scale: {
+        yoyo: Infinity,
+        duration: 1,
+      },
     },
   },
 };

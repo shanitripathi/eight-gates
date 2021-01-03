@@ -8,6 +8,7 @@ import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import GameDetail from "../components/GameDetail";
 import { useLocation } from "react-router-dom";
 import { fadeIn } from "../animations";
+import Loader from "../components/Loader";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -25,42 +26,45 @@ const Home = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      {popularGames[0] && (
+      {(popularGames[0] && (
         <>
           <Nav />
           <GameDetail />
-          {searched[0] && (
-            <GameList
-              className="container-fluid"
-              variants={fadeIn}
-              initial="hidden"
-              animate="show"
-            >
-              <div className="h2-wrapper">
-                <h2>Searched Games </h2>
-                <button
-                  onClick={clearSearch}
-                  className="btn btn-primary btn-clear"
-                >
-                  CLEAR
-                </button>
-              </div>
+          <AnimatePresence>
+            {searched[0] && (
+              <GameList
+                exit={{ opacity: 0 }}
+                className="container-fluid"
+                variants={fadeIn}
+                initial="hidden"
+                animate="show"
+              >
+                <div className="h2-wrapper">
+                  <h2>Searched Games </h2>
+                  <button
+                    onClick={clearSearch}
+                    className="btn btn-primary btn-clear"
+                  >
+                    CLEAR
+                  </button>
+                </div>
 
-              <Games className="row">
-                {searched.map((game) => {
-                  return (
-                    <Game
-                      name={game.name}
-                      released={game.released}
-                      id={game.id}
-                      image={game.background_image}
-                      key={game.id}
-                    />
-                  );
-                })}
-              </Games>
-            </GameList>
-          )}
+                <Games className="row">
+                  {searched.map((game) => {
+                    return (
+                      <Game
+                        name={game.name}
+                        released={game.released}
+                        id={game.id}
+                        image={game.background_image}
+                        key={game.id}
+                      />
+                    );
+                  })}
+                </Games>
+              </GameList>
+            )}
+          </AnimatePresence>
           <GameList className="container-fluid">
             <h2 id="upcoming">Upcoming Games</h2>
             <Games className="row">
@@ -110,7 +114,7 @@ const Home = () => {
             </Games>
           </GameList>
         </>
-      )}
+      )) || <Loader />}
     </React.Fragment>
   );
 };

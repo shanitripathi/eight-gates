@@ -30,18 +30,19 @@ const Nav = () => {
     >
       <Logo onClick={LogoHandler}>
         <h1>
-          EIGHT-<span>GATES</span>
+          EIGHT<span>GATES</span>
         </h1>
       </Logo>
       <form className="search" onSubmit={submitHandler}>
         <input
+          placeholder="search"
           type="text"
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
           }}
         />
-        <button>search</button>
+
         <div className="link-container">
           <ul className="list">
             <li className="list-item">
@@ -63,9 +64,9 @@ const Nav = () => {
 const StyledNav = styled(motion.div)`
   text-align: center;
   background-color: #202020;
-  padding: 30px 0 0 0;
+  padding: 20px 0 0 0;
   input {
-    width: 70%;
+    width: 50%;
     border: none;
     outline: none;
     background-color: white;
@@ -73,6 +74,9 @@ const StyledNav = styled(motion.div)`
     padding: 20px;
     border-radius: 50px;
     font-weight: bold;
+    @media (max-width: 520px) {
+      width: 90%;
+    }
   }
   button {
     border: none;
@@ -87,7 +91,7 @@ const StyledNav = styled(motion.div)`
   .link-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
     .list {
       display: flex;
       .list-item {
@@ -98,7 +102,11 @@ const StyledNav = styled(motion.div)`
           text-decoration: none;
           color: white;
           font-size: 900;
-          font-size: 1rem;
+          font-size: 0.8rem;
+          transition: all 500ms ease-in-out;
+          &:hover {
+            color: #f4c518;
+          }
         }
       }
     }
@@ -114,12 +122,11 @@ const Logo = styled(motion.div)`
 
   h1 {
     font-weight: bolder;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
-    color: white;
-    span {
-      color: white;
-    }
+    color: #f4c518;
+    box-shadow: 0 0 5px 0;
+    padding: 5px;
   }
   img {
     height: 35px;

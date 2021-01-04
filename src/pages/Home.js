@@ -134,7 +134,7 @@ const GameList = styled(motion.div)`
 
     font-weight: bolder;
     @media (max-width: 500px) {
-      font-size: 1.1rem;
+      font-size: 1.8rem;
     }
   }
   button {

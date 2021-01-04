@@ -19,13 +19,13 @@ const StyledLoader = styled(motion.div)`
 `;
 
 const Ball = styled(motion.div)`
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(50%, 50%);
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
+  transform: translate(-50%, -50%) !important;
+  height: 200px;
+  width: 200px;
+  border-radius: 10%;
   background-color: white;
 `;
 

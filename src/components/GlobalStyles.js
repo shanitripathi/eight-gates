@@ -12,6 +12,7 @@ body{
     font-family:futura;
     /* background-color:#202020; */
    height:100vh;
+   overflow:hidden;
     
     
 }

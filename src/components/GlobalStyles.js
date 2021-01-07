@@ -11,7 +11,7 @@ body{
     /* font-family:'Montserrat',sans-serif; */
     font-family:futura;
     /* background-color:#202020; */
-   
+   height:100vh;
     
     
 }

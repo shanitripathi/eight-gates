@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadGames, removeSearch } from "../actions";
 import Game from "../components/Game";
@@ -9,21 +9,34 @@ import GameDetail from "../components/GameDetail";
 import { useLocation } from "react-router-dom";
 import { fadeIn } from "../animations";
 import Loader from "../components/Loader";
+import LoadButton from "../components/LoadButton";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popularGames, newGames, upcomingGames, searched } = useSelector(
-    (state) => {
-      return state.gamesReducer;
-    }
-  );
+  const [final, setFinal] = useState(10);
+
+  const [initial, setInitial] = useState(0);
+  const {
+    popularGames,
+    newGames,
+    upcomingGames,
+    searched,
+    gamesLength,
+  } = useSelector((state) => {
+    return state.gamesReducer;
+  });
   const clearSearch = () => {
     dispatch(removeSearch());
   };
 
   useEffect(() => {
-    dispatch(loadGames());
+    dispatch(loadGames(initial, final));
+    setFinal(final + 10);
   }, [dispatch]);
+  const loadMore = (initial, final) => {
+    setFinal(final + 10);
+    dispatch(loadGames(initial, final));
+  };
   return (
     <React.Fragment>
       {(popularGames[0] && (
@@ -80,6 +93,7 @@ const Home = () => {
                 );
               })}
             </Games>
+            <LoadButton loadMore={loadMore} initial={initial} final={final} />
           </GameList>
           <GameList className="container-fluid">
             <h2 id="popular">Popular Games</h2>

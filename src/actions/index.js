@@ -7,20 +7,28 @@ import {
   searchGameUrl,
 } from "../api";
 
-export const loadGames = () => async (dispatch) => {
+export const loadGames = (initial = 0, final = 10) => async (dispatch) => {
   const popularGames = await fetch(popularGamesUrl());
   const popularData = await popularGames.json();
   const upcomingGames = await fetch(upcomingGamesUrl());
   const upcomingData = await upcomingGames.json();
   const newGames = await fetch(newGamesUrl());
   const newData = await newGames.json();
+  let btnShow = true;
+  let uData = upcomingData.results.slice(initial, final);
+  let pData = popularData.results.slice(initial, final);
+  let nData = newData.results.slice(initial, final);
+  if (final >= upcomingData.results.length) {
+    btnShow = false;
+  }
 
   dispatch({
     type: "FETCH_GAMES",
     payload: {
-      popularGames: popularData.results,
-      upcomingGames: upcomingData.results,
-      newGames: newData.results,
+      popularGames: pData,
+      upcomingGames: uData,
+      newGames: nData,
+      btnShow: btnShow,
     },
   });
 };

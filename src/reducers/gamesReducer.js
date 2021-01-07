@@ -3,6 +3,7 @@ const initState = {
   newGames: [],
   upcomingGames: [],
   searched: [],
+  btnShow: true,
 };
 
 export const gamesReducer = (state = initState, action) => {

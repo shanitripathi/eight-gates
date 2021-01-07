@@ -17,10 +17,9 @@ import { popup, fadeIn } from "../animations";
 
 const GameDetail = ({ id }) => {
   const { game, screenshots } = useSelector((state) => state.detailReducer);
-  const { pathname } = useLocation();
-  const history = useHistory();
+
   const dispatch = useDispatch();
-  console.log(pathname);
+
   const exitHandler = (e) => {
     if (
       e.target.classList.contains("card-shadow") ||
@@ -98,7 +97,11 @@ const GameDetail = ({ id }) => {
                 </Info>
               </Stats>
               <Media className="media col-12">
-                <img src={game.background_image} class="img-main" alt="image" />
+                <img
+                  src={game.background_image}
+                  className="img-main"
+                  alt="image"
+                />
               </Media>
               <Description className="description">
                 <p>{game.description_raw}</p>

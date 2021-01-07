@@ -26,6 +26,7 @@ const GameDetail = ({ id }) => {
       e.target.classList.contains("btn-back")
     ) {
       dispatch(exitCard());
+      document.querySelector(".home").style.overflow = "auto";
       document.body.style.overflow = "auto";
     }
   };

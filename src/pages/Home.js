@@ -38,7 +38,7 @@ const Home = () => {
     dispatch(loadGames(initial, final));
   };
   return (
-    <React.Fragment>
+    <div className="home">
       {(popularGames[0] && (
         <>
           <Nav />
@@ -129,7 +129,7 @@ const Home = () => {
           </GameList>
         </>
       )) || <Loader />}
-    </React.Fragment>
+    </div>
   );
 };
 

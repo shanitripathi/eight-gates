@@ -124,9 +124,11 @@ const GameDetail = ({ id }) => {
 const CardShadow = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.5);
-  position: sticky;
+  position: fixed;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif; */
   top: 0;
   left: 0;
   z-index: 2;

@@ -124,7 +124,7 @@ const GameDetail = ({ id }) => {
 const CardShadow = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
-  overflow-y: auto;
+  overflow-y: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -135,15 +135,14 @@ const CardShadow = styled(motion.div)`
 `;
 
 const Detail = styled(motion.div)`
-  border-radius: 1rem;
   padding: 2rem 2rem;
   background-color: #202020;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   overflow-y: scroll;
   color: #ffe06b;
   .gallery {
@@ -175,7 +174,7 @@ const Detail = styled(motion.div)`
   } */
   @media (max-width: 520px) {
     padding: 1rem 1.3rem;
-    height: 90%;
+    height: 100%;
     width: 100%;
     h5 {
       font-size: 0.8rem;

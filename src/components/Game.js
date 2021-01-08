@@ -12,7 +12,7 @@ const Game = ({ name, released, image, id }) => {
   const dispatch = useDispatch();
   const loadDetailHandle = (id) => {
     dispatch(loadDetail(id));
-    document.querySelector(".home").style.overflow = "hidden";
+
     document.body.style.overflow = "hidden";
   };
   return (

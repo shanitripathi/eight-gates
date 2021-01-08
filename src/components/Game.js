@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { loadDetail } from "../actions";
 import { useDispatch } from "react-redux";
-import { smallImage } from "../util";
+
 import { popup } from "../animations";
 
 const Game = ({ name, released, image, id }) => {

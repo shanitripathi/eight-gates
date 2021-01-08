@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-import { useLocation, useHistory } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { useDispatch, useSelector } from "react-redux";
 import { exitCard } from "../actions";
@@ -13,7 +12,7 @@ import apple from "../img/apple.svg";
 import gamepad from "../img/gamepad.svg";
 import starEmpty from "../img/star-empty.png";
 import starFull from "../img/star-full.png";
-import { popup, fadeIn } from "../animations";
+import { fadeIn } from "../animations";
 
 const GameDetail = ({ id }) => {
   const { game, screenshots } = useSelector((state) => state.detailReducer);
@@ -101,11 +100,13 @@ const GameDetail = ({ id }) => {
                 <img
                   src={game.background_image}
                   className="img-main"
-                  alt="image"
+                  alt="image-name"
                 />
               </Media>
               <Description className="description">
-                <p>{game.description_raw}</p>
+                <p
+                  dangerouslySetInnerHTML={{ __html: game.description_raw }}
+                ></p>
               </Description>
               <div className="gallery">
                 {screenshots.results.map((image) => {
@@ -125,7 +126,7 @@ const CardShadow = styled(motion.div)`
   min-height: 100vh;
   overflow-y: hidden;
   background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 2;
@@ -143,6 +144,11 @@ const Detail = styled(motion.div)`
   height: 90%;
   overflow-y: scroll;
   color: #ffe06b;
+  .gallery {
+    img {
+      margin: 30px 0 30px 0;
+    }
+  }
 
   .btn-back {
     font-size: 0.7rem;

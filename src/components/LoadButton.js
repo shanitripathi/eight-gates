@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { gamesReducer } from "../reducers/gamesReducer";
-import styled from "styled-components";
+
 const LoadButton = ({ loadMore, initial, final }) => {
   const { btnShow } = useSelector((state) => state.gamesReducer);
   console.log(btnShow);

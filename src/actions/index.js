@@ -14,13 +14,10 @@ export const loadGames = (initial = 0, final = 10) => async (dispatch) => {
   const upcomingData = await upcomingGames.json();
   const newGames = await fetch(newGamesUrl());
   const newData = await newGames.json();
-  let btnShow = true;
+
   let uData = upcomingData.results.slice(initial, final);
   let pData = popularData.results.slice(initial, final);
   let nData = newData.results.slice(initial, final);
-  if (final >= upcomingData.results.length) {
-    btnShow = false;
-  }
 
   dispatch({
     type: "FETCH_GAMES",
@@ -28,7 +25,6 @@ export const loadGames = (initial = 0, final = 10) => async (dispatch) => {
       popularGames: pData,
       upcomingGames: uData,
       newGames: nData,
-      btnShow: btnShow,
     },
   });
 };

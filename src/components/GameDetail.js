@@ -76,7 +76,11 @@ const GameDetail = ({ id }) => {
                     Back
                   </span>
                   <h5 className="mt-2">{game.name}</h5>
-
+                  {game.website != "" && (
+                    <a className="web-link" href={game.website}>
+                      Website
+                    </a>
+                  )}
                   <p>Rating: {getStars()}</p>
                 </div>
                 <Info className="info">
@@ -151,13 +155,18 @@ const Detail = styled(motion.div)`
     }
   }
 
-  .btn-back {
+  .btn-back,
+  .web-link {
     font-size: 0.7rem;
     font-weight: bold;
     background-color: black;
 
     padding: 5px;
     cursor: pointer;
+  }
+  .web-link {
+    text-decoration: none;
+    color: white;
   }
 
   img {

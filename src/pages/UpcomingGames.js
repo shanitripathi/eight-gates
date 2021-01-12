@@ -3,6 +3,7 @@ import GameSection from "../components/GameSection";
 import { useSelector, useDispatch } from "react-redux";
 import { loadGames } from "../actions";
 import GameDetail from "../components/GameDetail";
+
 const UpcomingGames = () => {
   const { upcomingGames } = useSelector((state) => state.gamesReducer);
   const dispatch = useDispatch();

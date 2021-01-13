@@ -13,9 +13,14 @@ body{
     /* background-color:#202020; */
    height:100%;
    position:relative;
+ 
   
     
     
+}
+html{
+    scroll-behavior: smooth;
+    transition:all 2000ms easeIn;
 }
 
 h2{

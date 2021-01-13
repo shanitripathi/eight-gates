@@ -21,6 +21,7 @@ const Nav = () => {
     dispatch(fetchSearch(input));
     setInput("");
   };
+
   return (
     <StyledNav
       className="container-fluid"
@@ -46,13 +47,19 @@ const Nav = () => {
         <div className="link-container">
           <ul className="list">
             <li className="list-item">
-              <a href="#upcoming">UPCOMING</a>
+              <a className="js-scroll" href="#upcoming">
+                UPCOMING
+              </a>
             </li>
             <li className="list-item">
-              <a href="#popular">POPULAR</a>
+              <a className="js-scroll" href="#popular">
+                POPULAR
+              </a>
             </li>
             <li className="list-item">
-              <a href="#new">NEW</a>
+              <a className="js-scroll" href="#new">
+                NEW
+              </a>
             </li>
           </ul>
         </div>
@@ -104,6 +111,7 @@ const StyledNav = styled(motion.div)`
           font-size: 900;
           font-size: 0.8rem;
           transition: all 500ms ease-in-out;
+
           &:hover {
             color: #f4c518;
           }

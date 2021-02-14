@@ -6,6 +6,8 @@ import {
   gameScreenshotUrl,
   searchGameUrl,
 } from "../api";
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
 
 export const loadGames = (initial = 0, final = 10) => async (dispatch) => {
   const popularGames = await fetch(popularGamesUrl());

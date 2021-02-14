@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
@@ -7,10 +8,10 @@ import { reducers } from "./reducers";
 import thunk from "redux-thunk";
 import { BrowserRouter } from "react-router-dom";
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancer(applyMiddleware(thunk)));
+// const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, {}, applyMiddleware(thunk));
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
       <App />

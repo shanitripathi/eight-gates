@@ -18,5 +18,8 @@ const NewGames = () => {
     </div>
   );
 };
+NewGames.loadData = (store) => {
+  return store.dispatch(loadGames(0, 50));
+};
 
 export default NewGames;

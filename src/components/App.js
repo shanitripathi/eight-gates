@@ -1,18 +1,17 @@
 import React from "react";
-import Home from "../pages/Home";
+
 import GlobalStyle from "../components/GlobalStyles";
 import { Route } from "react-router-dom";
-import UpcomingGames from "../pages/UpcomingGames";
-import PopularGames from "../pages/PopularGames";
-import NewGames from "../pages/NewGames";
+import Routes from "../Routes";
+import { renderRoutes } from "react-router-config";
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <GlobalStyle />
-
-        <Route exact path="/">
+        {renderRoutes(Routes[0].routes)}
+        {/* <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/upcominggames">
@@ -23,7 +22,7 @@ class App extends React.Component {
         </Route>
         <Route exact path="/newgames">
           <NewGames />
-        </Route>
+        </Route> */}
       </div>
     );
   }

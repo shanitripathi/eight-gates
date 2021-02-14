@@ -20,7 +20,7 @@ body{
 }
 html{
     scroll-behavior: smooth;
-    transition:all 2000ms easeIn;
+    
 }
 
 h2{

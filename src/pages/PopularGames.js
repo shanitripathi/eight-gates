@@ -23,4 +23,8 @@ const PopularGames = () => {
   );
 };
 
+PopularGames.loadData = (store) => {
+  return store.dispatch(loadGames(0, 50));
+};
+
 export default PopularGames;

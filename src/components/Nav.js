@@ -9,6 +9,7 @@ import { fadeIn } from "../animations";
 const Nav = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
+  const [timeoutId, setTimeoutId] = useState(null);
 
   const LogoHandler = () => {
     dispatch(removeSearch());

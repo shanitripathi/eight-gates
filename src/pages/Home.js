@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadGames, removeSearch } from "../actions";
 import Nav from "../components/Nav";
 import GameDetail from "../components/GameDetail";
+import PropTypes from "prop-types";
 
 import Loader from "../components/Loader";
 import GameSection from "../components/GameSection";
@@ -34,6 +35,7 @@ const Home = () => {
       {(popularGames[0] && (
         <>
           <Nav />
+
           <GameDetail />
           <SearchedSection
             sectionTitle="searched"
@@ -62,6 +64,10 @@ const Home = () => {
       )) || <Loader />}
     </div>
   );
+};
+
+Home.loadData = (store) => {
+  return store.dispatch(loadGames(0, 6));
 };
 
 export default Home;

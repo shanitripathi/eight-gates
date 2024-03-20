@@ -9,7 +9,6 @@ import { matchRoutes } from "react-router-config";
 import Routes from "../src/Routes";
 import render from "./render";
 import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { reducers } from "../src/reducers";
 

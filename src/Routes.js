@@ -1,4 +1,3 @@
-import React from "react";
 import App from "./components/App";
 import Home from "./pages/Home";
 import NewGames from "./pages/NewGames";
